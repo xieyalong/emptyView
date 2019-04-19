@@ -233,17 +233,24 @@ public class DSLayout extends FrameLayout{
         return this;
     }
 
-
+    public  interface OnClickRetry{
+        void onClick(View view);
+    }
     /**
      * 重试
      * @param isDefult 是否添加默认功能 点击后变成雪花加载图
-     * @param onClickListener
+     * @param onClickRetry
      */
-    public  void   setOnClickRetry(boolean isDefult,OnClickListener onClickListener){
-        if (isDefult){
-            setState(DSLayout.STATE_LOADING);
-        }
-        findViewById(R.id.btn_dsl).setOnClickListener(onClickListener);
+    public  void   setOnClickRetry(final boolean isDefult,final OnClickRetry onClickRetry){
+        findViewById(R.id.btn_dsl).setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (isDefult){
+                    setState(DSLayout.STATE_LOADING);
+                }
+                onClickRetry.onClick(view);
+            }
+        });
     }
 
 }
