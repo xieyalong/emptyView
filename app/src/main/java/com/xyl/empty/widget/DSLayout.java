@@ -60,7 +60,7 @@ public class DSLayout extends FrameLayout{
     private ImageView mIvIcon;
     private TextView mTvDesc;
     private Button mButton;
-    private LoadingLayout mLdlLoading;
+    private DSLoadingLayout mLdlLoading;
 
     public DSLayout(Context context) {
         this(context, null);
@@ -94,7 +94,7 @@ public class DSLayout extends FrameLayout{
         mTvDesc = (TextView) root.findViewById(R.id.tv_dsl_desc);
         mButton = (Button) root.findViewById(R.id.btn_dsl);
 
-        mLdlLoading = (LoadingLayout) root.findViewById(R.id.ldl_loading);
+        mLdlLoading = (DSLoadingLayout) root.findViewById(R.id.ldl_loading);
 
         ViewGroup.LayoutParams paramsT = vT.getLayoutParams();
         ViewGroup.LayoutParams paramsB = vB.getLayoutParams();

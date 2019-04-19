@@ -18,7 +18,7 @@ import java.lang.ref.WeakReference;
  * Loading
  * Created by Administrator on 2016/8/27.
  */
-public class LoadingView extends View {
+public class DSLoadingView extends View {
     public final static int TYPE_DAISY = 0;
     public final static int TYPE_DOT = 1;
 
@@ -43,9 +43,9 @@ public class LoadingView extends View {
 
     private static class Task implements Runnable {
 
-        WeakReference<LoadingView> weakRef;
+        WeakReference<DSLoadingView> weakRef;
 
-        Task(LoadingView view) {
+        Task(DSLoadingView view) {
             this.weakRef = new WeakReference<>(view);
         }
 
@@ -54,7 +54,7 @@ public class LoadingView extends View {
             if (isFinished()) {
                 return;
             }
-            LoadingView theView = weakRef.get();
+            DSLoadingView theView = weakRef.get();
             theView.invalidate();
             theView.mHandler.postDelayed(theView.mRunnable, theView.mDuration / theView.mCount);
         }
@@ -66,15 +66,15 @@ public class LoadingView extends View {
         }
     }
 
-    public LoadingView(Context context) {
+    public DSLoadingView(Context context) {
         this(context, null);
     }
 
-    public LoadingView(Context context, AttributeSet attrs) {
+    public DSLoadingView(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
-    public LoadingView(Context context, AttributeSet attrs, int defStyleAttr) {
+    public DSLoadingView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init(context);
     }

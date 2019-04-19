@@ -15,22 +15,22 @@ import com.xyl.empty.R;
  * LoadingLayout
  * Created by D on 2017/5/2.
  */
-public class LoadingLayout extends LinearLayout {
+public class DSLoadingLayout extends LinearLayout {
 
-    protected LoadingView mLdvLoading;
+    protected DSLoadingView mLdvLoading;
 
-    public LoadingLayout(Context context) {
+    public DSLoadingLayout(Context context) {
         super(context);
         init(context);
     }
 
-    public LoadingLayout(Context context, AttributeSet attrs) {
+    public DSLoadingLayout(Context context, AttributeSet attrs) {
         super(context, attrs);
         init(context);
     }
 
     @TargetApi(Build.VERSION_CODES.HONEYCOMB)
-    public LoadingLayout(Context context, AttributeSet attrs, int defStyleAttr) {
+    public DSLoadingLayout(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init(context);
     }
@@ -39,7 +39,7 @@ public class LoadingLayout extends LinearLayout {
         setOrientation(VERTICAL);
         setGravity(Gravity.CENTER);
         View root = LayoutInflater.from(context).inflate(R.layout.ds_layout_loading, this);
-        mLdvLoading = (LoadingView) root.findViewById(R.id.ldv_loading);
+        mLdvLoading = (DSLoadingView) root.findViewById(R.id.ldv_loading);
     }
 
     @Override
