@@ -82,7 +82,8 @@ public class DSLoadingView extends View {
     private void init(Context context) {
         this.mContext = context;
         this.mIsFirst = true;
-        this.mColor = ContextCompat.getColor(context, R.color.lib_pub_color_main);
+        //设置加载颜色
+        this.mColor = ContextCompat.getColor(context, R.color.colorAccent);
         this.mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         this.mPaint.setColor(mColor);
         this.mDuration = 1000;
