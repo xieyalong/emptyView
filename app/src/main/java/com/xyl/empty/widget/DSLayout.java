@@ -7,6 +7,7 @@ import android.support.annotation.DrawableRes;
 import android.support.annotation.IntDef;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
+import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,7 +20,6 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.xyl.empty.R;
-import com.xyl.empty.Util;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -100,10 +100,10 @@ public class DSLayout extends FrameLayout{
         ViewGroup.LayoutParams paramsB = vB.getLayoutParams();
         switch (mCenterType) {
             case CENT_TYPE_MAIN:
-                paramsB.height = Util.dip2px(context, AJUST_HEIGHT[CENT_TYPE_MAIN]);
+                paramsB.height = dip2px(context, AJUST_HEIGHT[CENT_TYPE_MAIN]);
                 break;
             case CENT_TYPE_LOCAL:
-                paramsB.height = Util.dip2px(context, AJUST_HEIGHT[CENT_TYPE_LOCAL]);
+                paramsB.height = dip2px(context, AJUST_HEIGHT[CENT_TYPE_LOCAL]);
                 break;
             default:
                 // Do nothing, default center 0/0
@@ -252,5 +252,11 @@ public class DSLayout extends FrameLayout{
             }
         });
     }
-
+    /**
+     * 根据手机的分辨率从 dp 的单位 转成为 px(像素)
+     */
+    public static int dip2px(Context context, float dpValue) {
+        DisplayMetrics metrics = context.getResources().getDisplayMetrics();
+        return (int) (dpValue * (metrics.densityDpi / 160f));
+    }
 }
