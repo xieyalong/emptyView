@@ -40,7 +40,7 @@
             android:background="@drawable/ds_empty_select_btn_main"
             android:gravity="center"
             android:text="重试"
-            android:textColor="@color/ds_empty_color_select_btn_main"
+            android:textColor="#ffffff"
             android:textSize="15dp"
             android:visibility="gone"
             android:onClick="onClick"/>

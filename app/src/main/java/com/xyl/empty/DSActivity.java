@@ -20,12 +20,14 @@ public class DSActivity extends Activity implements View.OnClickListener {
             setContentView(R.layout.module_ui_activity_ds);
             dslDs =new DSLayout(this);
             ((LinearLayout)findViewById(R.id.dsl_ds)).addView(dslDs);
+            findViewById(R.id.tv_empty1).setOnClickListener(this);
+            findViewById(R.id.tv_empty2).setOnClickListener(this);
             dslDs.setOnClickRetry(true, new DSLayout.OnClickRetry() {
                 @Override
                 public void onClick(View view) {
-
                 }
             });
+
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -34,7 +36,11 @@ public class DSActivity extends Activity implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         int resId = v.getId();
-        if (resId == R.id.btn_0_0) {
+        if (resId==R.id.tv_empty1){
+            dslDs.setVisibility(View.GONE);
+        }else if (resId==R.id.tv_empty2){
+            dslDs.setVisibility(View.VISIBLE);
+        }else if (resId == R.id.btn_0_0) {
             dslDs.setState(DSLayout.STATE_LOADING);
             System.out.println(">]2");
         } else if (resId == R.id.btn_0_1) {
